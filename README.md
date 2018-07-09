@@ -1,6 +1,8 @@
 # ViewInject
 A tool for injecting views
 
+[ ![Download](https://api.bintray.com/packages/jewelbao88/ComponentsMaven/ViewInject/images/download.svg) ](https://bintray.com/jewelbao88/ComponentsMaven/ViewInject/_latestVersion)
+<a href='https://bintray.com/jewelbao88/ComponentsMaven/ViewInject/_latestVersion'><img src='https://api.bintray.com/packages/jewelbao88/ComponentsMaven/ViewInject/images/download.svg'></a>
 
 ##  详细特性
 - 无缝注入View到主体中(Activity、Fragment、View)
