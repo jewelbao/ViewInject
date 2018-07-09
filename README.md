@@ -12,6 +12,12 @@ A tool for injecting views
 - 被注入主体为Activity时，注入View以自身LayoutParams填充到Activity.
 - 重复注入View时，会移除View的父View并根据缓存还原被注入主体，也可在自实现缓存策略中重写该逻辑
 
+
+## demo下载
+
+![image](https://github.com/jewelbao/ViewInject/blob/master/art/download.png)
+
+
 ## 使用方式
 
 1、在 build.gradle 中添加依赖
