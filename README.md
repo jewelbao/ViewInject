@@ -23,7 +23,7 @@ A tool for injecting views
 1、在 build.gradle 中添加依赖
 
 ```
-compile 'com.jewel.util:ViewInject:1.0'
+compile 'com.jewel.util:ViewInject:1.0.1'
 ```
 
 2、在Activity/Fragment/View中注入View
