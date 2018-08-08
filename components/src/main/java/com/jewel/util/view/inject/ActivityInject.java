@@ -1,6 +1,7 @@
 package com.jewel.util.view.inject;
 
 import android.app.Activity;
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -11,11 +12,12 @@ import android.widget.FrameLayout;
 
 /**
  * Target为Activity时的注入实现
+ *
  * @author Jewel
  * @version 1.0
  * @since 2018/07/02
  */
-class ActivityInject extends BaseInject{
+class ActivityInject extends BaseInject {
 
     @Override
     public boolean inject(Object target, int layoutId) {
@@ -23,7 +25,7 @@ class ActivityInject extends BaseInject{
         Activity activity = (Activity) target;
 
         FrameLayout rootView = getDecorView(activity);
-        if(rootView == null) return false;
+        if (rootView == null) return false;
 
         View statusView = getCacheInjectView(getKey(target));
 
@@ -93,7 +95,14 @@ class ActivityInject extends BaseInject{
 
     @Nullable
     private FrameLayout getDecorView(Activity activity) {
-        if (activity == null || activity.isFinishing() || activity.isDestroyed()) return null;
+        boolean activityFinished;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            activityFinished = activity == null || activity.isFinishing() || activity.isDestroyed();
+        } else {
+            activityFinished = activity == null || activity.isFinishing();
+        }
+        if (activityFinished) return null;
+
         Window window = activity.getWindow();
         if (window == null) return null;
         return (FrameLayout) window.getDecorView();
@@ -106,8 +115,8 @@ class ActivityInject extends BaseInject{
 
     private void showContentView(Activity activity, boolean show) {
         View view = getContentView(activity);
-        if(view != null) {
-            view.setVisibility(show ? View.VISIBLE :View.GONE);
+        if (view != null) {
+            view.setVisibility(show ? View.VISIBLE : View.GONE);
         }
     }
 }

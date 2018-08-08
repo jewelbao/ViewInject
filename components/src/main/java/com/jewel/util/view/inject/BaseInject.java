@@ -2,8 +2,6 @@ package com.jewel.util.view.inject;
 
 import android.view.View;
 
-import java.util.Objects;
-
 /**
  * @author Jewel
  * @version 1.0
